@@ -1,0 +1,89 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<link rel="stylesheet" href="https://sisaacwork.github.io/DataHandbook2024/DatabaseCharts.css">
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'pie',
+        backgroundColor: '#6fa4d8'
+    },
+    title: {
+        text: ''
+    },
+    tooltip: {
+        valueSuffix: ''
+    },
+    subtitle: {
+        text:
+        ''
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: [{
+                enabled: true,
+                distance: 20
+            }, {
+                enabled: true,
+                distance: -40,
+                format: '{point.percentage:.0f}%',
+                style: {
+                    fontSize: '1.2em',
+                    textOutline: 'none',
+                    opacity: 0.7
+                },
+                filter: {
+                    operator: '>',
+                    property: 'percentage',
+                    value: 10
+                }
+            }]
+        }
+    },
+    series: [
+        {
+            name: 'Buildings',
+            colorByPoint: true,
+            data: [
+                {
+                    name: 'Consultant / Supplier',
+                    y: 43491,
+                    color: '#E59625'
+                },
+                {
+                    name: 'Owner / Developer',
+                    y: 37152,
+                    color: '#7171A4'
+                },
+                {
+                    name: 'Architect',
+                    y: 29479,
+                    color: '#EF3B2A'
+                },
+                {
+                    name: 'Structural or MEP Engineer',
+                    y: 16311,
+                    color: '#102B4D'
+                },
+                {
+                    name: 'Contractor',
+                    y: 13037,
+                    color: '#C0E7F1'
+                },
+                {
+                		name: 'Other',
+                    y: 2090,
+                    color: '#0956A1'
+                }
+            ]
+        }
+    ]
+});
+</script>
