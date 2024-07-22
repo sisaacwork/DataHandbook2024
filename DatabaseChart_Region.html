@@ -1,0 +1,94 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<link rel="stylesheet" href="https://sisaacwork.github.io/DataHandbook2024/DatabaseCharts.css">
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'pie',
+        backgroundColor: '#6fa4d8'
+    },
+    title: {
+        text: ''
+    },
+    tooltip: {
+        valueSuffix: ''
+    },
+    subtitle: {
+        text:
+        ''
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: [{
+                enabled: true,
+                distance: 20
+            }, {
+                enabled: true,
+                distance: -40,
+                format: '{point.percentage:.0f}%',
+                style: {
+                    fontSize: '1.2em',
+                    textOutline: 'none',
+                    opacity: 0.7
+                },
+                filter: {
+                    operator: '>',
+                    property: 'percentage',
+                    value: 10
+                }
+            }]
+        }
+    },
+    series: [
+        {
+            name: 'Buildings',
+            colorByPoint: true,
+            data: [
+                {
+                    name: 'Asia',
+                    y: 14650,
+                    color: '#E59625'
+                },
+                {
+                    name: 'North America',
+                    y: 11633,
+                    color: '#7171A4'
+                },
+                {
+                    name: 'Europe',
+                    y: 6140,
+                    color: '#EF3B2A'
+                },
+                {
+                    name: 'South America',
+                    y: 5490,
+                    color: '#102B4D'
+                },
+                {
+                    name: 'Oceania',
+                    y: 2664,
+                    color: '#C0E7F1'
+                },
+                {
+                		name: 'Middle East',
+                    y: 1915,
+                    color: '#0956A1'
+                },
+                {
+                		name: 'Africa',
+                    y: 398,
+                    color: '#70A4D8'
+                }
+            ]
+        }
+    ]
+});
+</script>
